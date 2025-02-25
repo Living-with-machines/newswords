@@ -1,0 +1,1 @@
+nlp_id = lambda x: x.name.split('_')[0]
