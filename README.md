@@ -15,12 +15,22 @@ The most convenient way to explore NewsWords is by downloading the processed cou
 After following the installation instructions, you open `Explore_Distributed_Corpus.ipynb` and follow the instructions. 
 
 After opening the notebook, you need to set path to the location where you unzipped the data.
-```{python}
+```python
 path = 'path/to/data'
 corpus = DistributedCorpus(path,n_cores=12)
 ```
 
-nd b) the `query_dict`.
+
+Next you can define the `query_dict`. This is Python dictionary, which maps a query id to a list of query terms. 
+By creating the query_dict you define all the query you want to run over the NewsWords corpus.
+
+```python
+query_dict =  {1:['machine'],
+               2:['train','railway'],
+               3:['accident','accidents'],
+               4:['liberal','liberals'],
+               5:['drought','droughts'],}
+```               
 
 
 
@@ -29,40 +39,41 @@ nd b) the `query_dict`.
 
 
 
-## Installation
+
+## Installation
 
 
 Code for the counts data derived from historical newspapers
 
 
-```{bash}
+```bash
 conda create -n newswords python=3.10
 ```
 
-```{bash}
+```bash
 conda activate newswords
 ```
 
-```{bash}
+```bash
 conda install -c anaconda ipykernel
 ```
 
-```{bash}
+```bash
 git clone https://github.com/Living-with-machines/newswords.git
 ```
 
-```{bash}
+```bash
 cd ./newswords
 ```
 
-```{bash}
+```bash
 pip install -r requirements.txt
 ```
 
 ## Download
 
 
-## Process
+## Process
 
 
-## Query
+## Query
