@@ -2,11 +2,15 @@
 
 NewsWords is a toolbox for studying the content of historical British Newspapers during the long nineteenth century.
 
-It enables you to study the distribution of words with high level of granulary and complexity. 
+
 
 Questions you answers with NewsWords are: Did Liberal newspaper talk more 'workers' about than Conservative titles? When and where did newspaper refer the 'droughts' or other environmental terms?
 
-NewsWords is a toolbox build on two 
+NewsWords is a toolbox build on two datasets
+- NewsWords Word Count Data: records for each newspaper title the frequency of all words by month.
+- Structured Press Directories: provides richer description of the press landscape. For each title, the press directories record import attributes such as politics, price and more!
+
+By combining these sources, NewsWords enables you to study the distribution of words with high level of granulary and complexity. 
 
 ## Quick Tour
 
@@ -111,6 +115,3 @@ pip install -r requirements.txt
 
 
 ## Process
-
-
-## Query
