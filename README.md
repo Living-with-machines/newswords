@@ -2,6 +2,7 @@
 
 NewsWords is a toolbox for studying the content of historical British Newspapers during the long nineteenth century.
 
+![](figures/drought_2.gif)
 
 
 Questions you answers with NewsWords are: Did Liberal newspaper talk more 'workers' about than Conservative titles? When and where did newspaper refer the 'droughts' or other environmental terms?
