@@ -4,3 +4,4 @@ scikit_learn==1.6.1
 scipy==1.15.1
 tqdm==4.67.1
 ipywidgets==8.1.5
+seaborn==0.13.2

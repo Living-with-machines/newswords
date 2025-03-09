@@ -114,7 +114,7 @@ class CorpusProcessor:
             futures = [pool.apply_async(f) for f in functions]
             results = [fut.get() for fut in futures]
 
-    def merge_metadata(self,out_path,totals,
+    def merge_metadata(self,out_path,totals=None,
                     npd_links_path=None,
                     npd_data_path=None):
 
@@ -126,20 +126,25 @@ class CorpusProcessor:
         metadata = []
         for nlp in tqdm_notebook(self.json_handler.nlp_ids):
             m = pd.read_csv(f'{self.save_to}/{nlp}_metadata.csv',index_col=0)
-            m['NLP'] = nlp
+            if not totals:
+                c = load_npz(f'{self.save_to}/{nlp}_sparse_matrix.npz').sum(axis=1)
+                m['totals'] = c
+                m['NLP'] = nlp
             metadata.append(m)
        
         metadata = pd.concat(metadata,axis=0)
-        metadata['totals'] = totals
+        if totals:
+            metadata['totals'] = totals
         
         
         if npd_links_path:
             
             metadata['idx'] = list(range(metadata.shape[0]))
             metadata['link'] = metadata.apply(lambda x: f'{x.NLP}_{x.year}',axis=1)
-            npd_links = pd.read_csv(npd_links_path,index_col=0,dtype={'NLP':str,'AcquiredYears':int})
+            npd_links = pd.read_csv(npd_links_path,dtype={'NLP':str,'AcquiredYears':int}, index_col=0)[['NLP','AcquiredYears','link_to_mpd']]
             npd_links['link'] = npd_links.apply(lambda x: f'{x.NLP.zfill(7)}_{x.AcquiredYears}',axis=1)
-            print(metadata['link'][:10],npd_links['link'][:10])
+
+            #print(metadata['link'][:10],npd_links['link'][:10])
             # !!!! TO DO: this join adds rows, try to find out why
             # some newspaper appear in multiple collections
             # the line below should fix it but not sure if it's correct
@@ -153,7 +158,7 @@ class CorpusProcessor:
             
            
         if npd_data_path:
-            npd_data = pd.read_csv(npd_data_path)
+            npd_data = pd.read_csv(npd_data_path, index_col=0)
             metadata  = metadata.merge(npd_data,left_on='link_to_mpd',right_on='id',how='left',suffixes=['','_npd'])
             
         
@@ -176,6 +181,8 @@ class CorpusProcessor:
 
         else:
             for nlp in tqdm_notebook(self.json_handler.nlp_ids):
+                if not nlp.startswith('0'): continue
+                print(nlp)
                 matrix = load_npz(f'{self.save_to}/{nlp}_sparse_matrix.npz').astype(np.int32)
                 #print(matrix.shape)
                 data.append(matrix)
