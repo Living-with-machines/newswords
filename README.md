@@ -72,7 +72,7 @@ sns.lineplot(x=timestep,y=f'relative_counts_{query_dict_key}',data=df[time_filte
 
 Which generates the following lineplot.
 
-![lineplot](lineplot1.png)
+![lineplot](figures/lineplot1.png)
 
 ## Installation
 
