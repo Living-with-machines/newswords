@@ -1,23 +1,23 @@
 # NewsWords
 
-NewsWords is a toolbox for studying the content of historical British Newspapers during the "long" nineteenth century (1780-1920).
+NewsWords Code is a toolbox for studying the content of historical British Newspapers during the "long" nineteenth century (1780-1920).
 
-NewsWords records word count information by month and is linked to enriched metadata derived from historical Press Directories.
+NewsWords Data records word count information by month and is linked to enriched metadata derived from historical Press Directories.
 
-Questions you can answer with NewsWords are: Did Liberal newspaper talk more about 'workers' than Conservative titles? When and where did newspapers mention 'droughts' (See animation below)? 
+Questions you can answer with NewsWords are: Did Liberal newspaper talk more about "workers" than Conservative titles? When and where did newspapers mention 'droughts'? (See animation below.)
 
 ![](figures/drought_2.gif)
 Figure 1: Example of NewsWords output showing the frequency of the word "drought" by place of publication over time
 
 NewsWords is a toolbox built on two datasets:
-- Word Count Data: records word frequency by month for each digitised newspaper title between 1780 and 1920.
+- Word Count Data: records word frequency by month for each digitised newspaper title between 1780 and 1920. The data can be downloaded from Zenodo in ["raw"](https://zenodo.org/uploads/14826348) and ["processed"](https://zenodo.org/uploads/14996278) form. We recommend you start with the latter.
 - Structured Press Directories: provides elaborate descriptions of the newspaper titles, capturing attributes such as politics, price and more.
 
 By combining these sources, NewsWords enables you to study the distribution of words with a high level of granularity and complexity. 
 
 ## Quick Tour
 
-The most convenient way to explore NewsWords is by downloading the processed count data from [Zenodo](https://zenodo.org/uploads/14996278) and unzip the `sparse_matrices.zip` file.
+The most convenient way to explore NewsWords is by downloading the processed NewsWords Data from [Zenodo](https://zenodo.org/uploads/14996278) and unzip the `sparse_matrices.zip` file.
 
 After following the installation instructions (see below), you can open `Explore_Distributed_Corpus.ipynb` and follow the instructions. 
 
